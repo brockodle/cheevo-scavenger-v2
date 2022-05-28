@@ -1,37 +1,38 @@
 @keyframes overbtn {
     100% {
-        filter:brightness(1.2);
-        border:solid 4px white;
-        background:linear-gradient(#85a5cc, #1a1f2b);
+        filter: brightness(1.2);
+        border: solid 4px lightgray;
+        background: linear-gradient(#85a5cc, #1a1f2b);
     }
 }
 
 #headertxt {
-    font-family:'Pangolin', cursive;
-
+    font-family: 'Pangolin', cursive;
+    font-size: 50px;
 }
 
 #menu {
-    display:flex;
-    flex-flow:column wrap;
+    display: flex;
+    flex-flow: column wrap;
     justify-content: space-around;
     align-content: center;
 }
 
 .menubtn {
-    width:25%;
+    width: 25%;
     text-align: center;
-    font-family:'Pangolin', cursive;
-    font-size:48px;
-    background:linear-gradient(#85a5cc, #1a1f2b);
-    color:#fff;
-    padding:15px 30px;
-    border:solid 4px rgba(255, 255, 255, 0);
-    margin-bottom:20px;
-    box-shadow:3px 3px 4px black;
+    font-family: 'Pangolin', cursive;
+    font-size: 36px;
+    background: linear-gradient(#85a5cc, #1a1f2b);
+    color: #fff;
+    padding: 15px 30px;
+    border: solid 4px rgba(255, 255, 255, 0);
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 3px black;
+    border-radius: 15px;
 }
 
-.menubtn:hover{
-    cursor:default;
-    animation:overbtn forwards 400ms ease-in-out;
+.menubtn:hover {
+    cursor: default;
+    animation: overbtn forwards 400ms ease-in-out;
 }
