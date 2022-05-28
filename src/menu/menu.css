@@ -1,6 +1,37 @@
+@keyframes overbtn {
+    100% {
+        filter:brightness(1.2);
+        border:solid 4px white;
+        background:linear-gradient(#85a5cc, #1a1f2b);
+    }
+}
+
+#headertxt {
+    font-family:'Pangolin', cursive;
+
+}
+
+#menu {
+    display:flex;
+    flex-flow:column wrap;
+    justify-content: space-around;
+    align-content: center;
+}
+
 .menubtn {
-    width:auto;
-    background-color:green;
+    width:25%;
+    text-align: center;
+    font-family:'Pangolin', cursive;
+    font-size:48px;
+    background:linear-gradient(#85a5cc, #1a1f2b);
     color:#fff;
-    padding:15px;
+    padding:15px 30px;
+    border:solid 4px rgba(255, 255, 255, 0);
+    margin-bottom:20px;
+    box-shadow:3px 3px 4px black;
+}
+
+.menubtn:hover{
+    cursor:default;
+    animation:overbtn forwards 400ms ease-in-out;
 }
