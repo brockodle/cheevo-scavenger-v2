@@ -1,21 +1,15 @@
+import { render } from "@testing-library/react";
 import React, { useState } from "react";
+import Game from "../game/maingame";
 import "./menu.css";
 
 const Menu = () => {
 
-    function Promptmain() {
-        return (
-            <div id="clickhappened">
-                A click happened
-            </div>
-        )
-    }
-
-    const logclick = () => {
+    const togame = () => {
         console.log('make stuff happen here.');
 
         return (
-            <Promptmain/>
+            {c}
         )
     };
 
@@ -27,7 +21,7 @@ const Menu = () => {
                 Cheevo Scavenger
             </div>
             <div id="menu">
-                <div id="play" onClick={() => topage(logclick)} className="menubtn">
+                <div id="play" onClick={() => topage(togame)} className="menubtn">
                     play
                 </div>
                 <div id="howto" className="menubtn">
