@@ -1,5 +1,17 @@
+import { getElementError, render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import cheevos from "../cheevorepo/mall.json"
+import "./game.css";
+import $ from "jquery";
+
+const Timer = () => {
+
+    return (
+        <div id="timer">
+
+        </div>
+    )
+}
 
 const Game = () => {
 
@@ -22,7 +34,7 @@ const Game = () => {
                         fourcheevs();
                     }
                 }
-                    displaycheevs.push(ch);     
+                displaycheevs.push(ch);     
             }
         };
         fourcheevs();
@@ -32,21 +44,51 @@ const Game = () => {
 
     const OptionDivs = () => {
 
-        let outdivs = displaycheevs.map(
-            item => (
-                <div>{item.title}</div>
+        const [cheevo, makenew] = useState();
+        const [newc, replacement] = useState();
+
+        $('#description').hide().fadeIn(200);
+
+        const newcheevo = (newid, pts, id) => {
+            $('.cheevoitem-pointsbtn').on('tap, click', function(){
+                $(`#${id}`).animate({
+                    'left':'110%'
+                }, 200).remove();
+            });
+        }
+
+        const adddescription = (cheevodesc, pts) => {
+
+            return(
+                <div id="description">
+                    <div className="desccopy">{cheevodesc}</div>
+                    <button onClick={replacement(newcheevo())} className="cheevoitem-pointsbtn">Found it! ({pts} points)</button>
+                </div>
+            )
+        }
+
+        const outdivs = displaycheevs.map(
+            (item, index) => (
+                <div id={index} className="cheevoitem" onClick={() => makenew(adddescription(item.description, item.points))} key={index}>
+                    {item.title}
+                    {newc}
+                </div>
             )
         );
 
         return (
-            <div>
+            <div id="cheevoparent" className="cheevoparent" key="cheevoparent">
                 {outdivs}
+                {cheevo}
             </div>
         )
     }
 
     return (
-        <OptionDivs />
+        <div>
+            <Timer/>
+            <OptionDivs />
+        </div>
     )
 };
 
