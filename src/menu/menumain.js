@@ -15,8 +15,6 @@ const Menu = () => {
         navigate(currpg);
     }
 
-    const [c, topage] = useState();
-
     return (
         <div id="mainapp">
             <div id="headertxt">
