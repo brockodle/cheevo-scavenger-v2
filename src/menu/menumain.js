@@ -6,7 +6,7 @@ const Menu = () => {
     function Promptmain() {
         return (
             <div id="clickhappened">
-                A click happened
+                A click happened {c}
             </div>
         )
     }
