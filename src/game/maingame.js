@@ -1,10 +1,12 @@
+import { render } from "@testing-library/react";
+import React from "react";
 import Menu from "../menu/menumain";
 
 const Game = () => {
 
     const Option1 = () => {
         return (
-            <div id="cheevo1">
+            <div>
                 Cheevo1
             </div>
         )

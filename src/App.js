@@ -1,9 +1,10 @@
 import './App.css';
 import Menu from './menu/menumain';
 import Game from './game/maingame';
-import { Route, Router } from 'react-router-dom';
 import Results from './results/results';
 import Credits from './credits/credits';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+
 
 //OVERALL GAME
     //MENU
@@ -21,16 +22,15 @@ import Credits from './credits/credits';
         //RECORDS
         //RETRY
 
-const App = () => {
+export default function App() {
 
   return (
-    <div>
-      <Menu/>
-      <Game/>
-      <Credits/>
-      <Results/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Menu/>} />
+        <Route path="/game" element={<Game/>}/>
+        <Route path="/credits" element={<Credits/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
-
-export default App;
