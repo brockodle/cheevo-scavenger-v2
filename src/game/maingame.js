@@ -1,11 +1,10 @@
-import { render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
-import Menu from "../menu/menumain";
 import cheevos from "../cheevorepo/mall.json"
 
 const Game = () => {
 
     const mall = [];
+    const displaycheevs = [];
 
     (function mallcheevos() {
         const allcheevs = cheevos.achievements;
@@ -13,64 +12,41 @@ const Game = () => {
             const e = allcheevs[d];
             mall.push({ 'title': e.title, 'description': e.description, 'points': e.points, 'image': e.vid });
         }
+        function fourcheevs() {
+            for (let c = 0; c < 4; c++) {
+                const ch = mall[Math.round(Math.random() * mall.length)];
+                for (let i of displaycheevs){
+                    if (ch.title === i.title){
+                        c--;
+                        console.log('title is same');
+                        fourcheevs();
+                    }
+                }
+                    displaycheevs.push(ch);     
+            }
+        };
+        fourcheevs();
     }());
 
-    let copypick;
+    console.log(displaycheevs);
 
-    const Option1 = () => {
+    const OptionDivs = () => {
 
-        copypick = mall[Math.round(Math.random() * (mall.length))];
-
-        return (
-            <div>
-                {copypick.title} &ndash; {copypick.description}
-            </div>
-        )
-    }
-
-    const Option2 = () => {
-
-        copypick = mall[Math.round(Math.random() * (mall.length))];
+        let outdivs = displaycheevs.map(
+            item => (
+                <div>{item.title}</div>
+            )
+        );
 
         return (
             <div>
-                {copypick.title} &ndash; {copypick.description}
+                {outdivs}
             </div>
         )
-
-    }
-
-    const Option3 = () => {
-
-        copypick = mall[Math.round(Math.random() * (mall.length))];
-
-        return (
-            <div>
-                {copypick.title} &ndash; {copypick.description}
-            </div>
-        )
-
-    }
-
-    const Option4 = () => {
-
-        copypick = mall[Math.round(Math.random() * (mall.length))];
-
-        return (
-            <div>
-                {copypick.title} &ndash; {copypick.description}
-            </div>
-        )
-
     }
 
     return (
-        <div>
-            <Option1 />
-            <Option2 />
-            <Option3 />
-            <Option4 />
-        </div>
+        <OptionDivs />
     )
 };
 
