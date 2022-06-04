@@ -1,33 +1,27 @@
+import { render } from "@testing-library/react";
 import React, { useState } from "react";
+import { Navigate, Route, Router, useNavigate } from "react-router-dom";
+import App from "../App";
+import Game from "../game/maingame";
 import "./menu.css";
 
 const Menu = () => {
 
-    function Promptmain() {
-        return (
-            <div id="clickhappened">
-                A click happened {c}
-            </div>
-        )
+    let navigate = useNavigate();
+
+    const outofsite = (currpg) => {
+        
+        console.log('stuff happens');
+        navigate(currpg);
     }
 
-    const logclick = () => {
-        console.log('make stuff happen here.');
-
-        return (
-            <Promptmain/>
-        )
-    };
-
-    const [c, topage] = useState();
-
     return (
-        <div>
+        <div id="mainapp">
             <div id="headertxt">
                 Cheevo Scavenger
             </div>
             <div id="menu">
-                <div id="play" onClick={() => topage(logclick)} className="menubtn">
+                <div id="play" onClick={() => outofsite('/game')} className="menubtn">
                     play
                 </div>
                 <div id="howto" className="menubtn">

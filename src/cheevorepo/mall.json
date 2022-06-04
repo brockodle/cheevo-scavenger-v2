@@ -3,7 +3,7 @@
 	"achievements": {
 		"1": {
 			"title": "Aiming for the Stars",
-			"description": "Nip-slip (dudes apply)",
+			"description": "Nip-slip",
 			"points": 2,
 			"vid":"<img src=\"\" width=\"100%\" height=\"50%\" />",
 			"achievementId": 1
@@ -52,7 +52,7 @@
 		},
 		"8": {
 			"title": "Air Ball",
-			"description": "Someone tries to b-ball their trash and makes it.",
+			"description": "Someone tries to b-ball their trash and does not make it.",
 			"points": 2,
 			"vid":"<img src=\"\" width=\"100%\" height=\"50%\" />",
 			"achievementId": 8
