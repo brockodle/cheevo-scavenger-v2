@@ -7,8 +7,9 @@
 }
 
 #headertxt {
+    text-align: center;
     font-family: 'Pangolin', cursive;
-    font-size: 50px;
+    font-size: 44px;
     margin-bottom: 10px;
 }
 

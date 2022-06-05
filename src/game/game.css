@@ -6,13 +6,15 @@
 
 .cheevoitem {
     position:relative;
-    background: linear-gradient(green, forestgreen);
+    background: linear-gradient(rgba(0, 120, 0, 0.8), rgba(0, 80, 0, 0.8));
     padding:15px;
     font-size:25px;
     color:white;
     margin-bottom:10px;
     text-align: center;
     text-shadow: 2px 2px 3px black;
+    border-radius:3px;
+    font-weight:bold;
 }
 
 .cheevoitem:hover {
