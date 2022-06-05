@@ -26,6 +26,14 @@
 }
 
 #description {
-    display:flex;
-    flex-flow:column wrap;
+    display:none;
+}
+
+#points {
+    font-size:22px;
+    font-weight: bold;
+}
+
+.cheevobtn {
+    display:none;
 }

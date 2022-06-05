@@ -4,122 +4,79 @@ import cheevos from "../cheevorepo/mall.json"
 import "./game.css";
 import $ from "jquery";
 
+    //GAME MAIN SECTION
+        //CHEEVO OPTIONS
+        //TIMER
+        //POINTS COLLECTION
+        //MUSIC?
+
 const Game = () => {
 
-    const [p, pointsout] = useState(0);
+    const [p, addpts] = useState(0);
+    const mallcheevos = [];
+    const currcheevs = [];
 
-    const incpts = () => {
-        
-        p++
+    const set4cheevos = () => {
+        for (let cu = 0; cu < 4; cu++){
+            const pick = Math.round(Math.random()*mallcheevos.length);
+            if(){
+                currcheevs.push(pick);
+            }
+            else {
+
+            }
+            for (let c of mallcheevos){
+
+            }
+    }
+
+    const convjson = (inj, host) => {
+        for (let c in inj){
+            host.push(inj[c]);
+        };
+        set4cheevos();
+    }
+
+    convjson(cheevos.achievements, mallcheevos);
+
+    const Points = () => {
 
         return (
-            <span>{p}</span>
+            <div id="points">{p}</div>
         )
     }
 
     const Timer = () => {
 
-        return (
-            <div id="timer">
+    }
 
-            </div>
+    const Cheevos = () => {
+
+        return (
+            <div className="cheevoitem">Item X</div>
         )
     }
 
-    const mall = [];
-    const displaycheevs = [];
-
-    function fourcheevs() {
-        for (let c = 0; c < 4; c++) {
-            const ch = mall[Math.round(Math.random() * mall.length)];
-            for (let i of displaycheevs) {
-                if (ch.title === i.title) {
-                    c--;
-                    console.log('title is same');
-                    fourcheevs();
-                }
-            }
-            displaycheevs.push(ch);
-        }
-    };
-
-    (function mallcheevos() {
-        const allcheevs = cheevos.achievements;
-        for (let d in allcheevs) {
-            const e = allcheevs[d];
-            mall.push({ 'title': e.title, 'description': e.description, 'points': e.points, 'image': e.vid });
-        }
-        fourcheevs();
-    }());
-
-    console.log(displaycheevs);
-
-    const OptionDivs = () => {
-
-        const [cheevo, makenew] = useState();
-        const [newc, replacement] = useState();
-
-        $('#description').hide().fadeIn(200);
-
-        const adddescription = (cheevodesc, pts, cheevoid) => {
-
-            return (
-                <div id="description">
-                    <div className="desccopy">
-                        {cheevodesc}
-                    </div>
-                    <button onClick={() => replacement(newcheevo(cheevoid))} className="cheevoitem-pointsbtn">
-                        Found it! ({pts} points)
-                    </button>
-                </div>
-            )
-        }
-
-        const outdivs = displaycheevs.map(
-            (item, index) => (
-                <div id={index} className="cheevoitem" onClick={() => makenew(adddescription(item.description, item.points, index))} key={index}>
-                    {item.title}
-                </div>
-            )
-        );
-
-        const newcheevo = (id) => {
-
-            const olditem = document.getElementById(id);
-            const desc = document.getElementById('description');
-
-            $(olditem)
-                .animate({
-                    "left": "110%",
-                }, 150)
-                .delay(250, function () {
-                    $(olditem).remove();
-                    $(desc).hide();
-                });
-
-            displaycheevs.slice(id);
-            const newitem = mall[Math.round(Math.random() * mall.length)];
-            displaycheevs.push(newitem);
-        }
+    const CheevoDescription = () => {
 
         return (
-            <div id="cheevoparent" className="cheevoparent" key="cheevoparent">
-                {outdivs}
-                {newc}
-                {cheevo}
-            </div>
+            <div id="description" >Description of item</div>
         )
     }
 
-    const Points = () => {
+    const PtsBtn = () => {
 
+        return (
+            <button className="cheevobtn">Found it! (X points)</button>
+        )
     }
 
     return (
-        <div>
-            <Timer />
-            <div className="points">{p}</div>
-            <OptionDivs />
+        <div className="cheevoparent">
+            <Points id="points"/><Timer id="timer"/>
+            <Cheevos/>
+            <CheevoDescription/>
+            <PtsBtn add={addpts}/>
         </div>
     )
 };
