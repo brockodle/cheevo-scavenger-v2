@@ -4,34 +4,52 @@ import cheevos from "../cheevorepo/mall.json"
 import "./game.css";
 import $ from "jquery";
 
-    //GAME MAIN SECTION
-        //CHEEVO OPTIONS
-        //TIMER
-        //POINTS COLLECTION
-        //MUSIC?
+//GAME MAIN SECTION
+//CHEEVO OPTIONS
+//TIMER
+//POINTS COLLECTION
+//MUSIC?
 
 const Game = () => {
 
     const [p, addpts] = useState(0);
-    const mallcheevos = [];
-    const currcheevs = [];
+    let mallcheevos = [];
+    let currcheevs = [];
 
     const set4cheevos = () => {
-        for (let cu = 0; cu < 4; cu++){
-            const pick = Math.round(Math.random()*mallcheevos.length);
-            if(){
-                currcheevs.push(pick);
-            }
-            else {
 
-            }
-            for (let c of mallcheevos){
+        for (let cu = 0; cu < 4; cu++) {
 
+            const pick = mallcheevos[Math.floor(Math.round(Math.random() * mallcheevos.length))];
+            
+            if (currcheevs.length > 1){
+
+                for (let p of currcheevs){
+
+                    if (p.title === pick.title){
+
+                        console.log('same title', p.title, pick.title, currcheevs.indexOf(p));
+                        currcheevs.splice(currcheevs.indexOf(p),1);
+                        cu--;
+                        
+                    }
+
+                    else {
+                        console.log('different titles', p.title, pick.title);
+                    }
+                }
             }
-    }
+
+            currcheevs.push(pick);
+
+        }
+
+        console.log('final output', currcheevs);
+
+    };
 
     const convjson = (inj, host) => {
-        for (let c in inj){
+        for (let c in inj) {
             host.push(inj[c]);
         };
         set4cheevos();
@@ -73,10 +91,10 @@ const Game = () => {
 
     return (
         <div className="cheevoparent">
-            <Points id="points"/><Timer id="timer"/>
-            <Cheevos/>
-            <CheevoDescription/>
-            <PtsBtn add={addpts}/>
+            <Points id="points" /><Timer id="timer" />
+            <Cheevos />
+            <CheevoDescription />
+            <PtsBtn add={addpts} />
         </div>
     )
 };
