@@ -17,14 +17,9 @@ const Game = () => {
     let mallcheevos = [];
     let currcheevs = [];
 
-    const expandinfo = (allp, item) => {
+    const expandinfo = (n, item, divs) => {
 
-        const iid = allp.props.id.toString();
-        const cid = allp.props.className.toString();
-
-        console.log(allp, item);
-
-        $('#' + iid + '.' + cid).toggleClass('cheevselect');
+        console.log(n, item);
 
         return (
             <div>{item.description}</div>
@@ -87,11 +82,11 @@ const Game = () => {
 
         const outdivs = currcheevs.map(
             (item, index) => (
-                <div id={index} className="cheevoitem" key={index} onClick={() => cheevdetail(expandinfo(outdivs[index], item))} >
+                <div id={index} className="cheevoitem" onClick={() => cheevdetail(expandinfo(index, item, $(this)))} key={index}>
                     {item.title}
                 </div>
             )
-        );
+        )
 
         return (
             outdivs
@@ -118,7 +113,7 @@ const Game = () => {
     return (
         <div className="cheevoparent">
             <Points id="points" /><Timer id="timer" />
-            <Cheevos dtl={cheevdetail} />
+            <Cheevos/>
             <CheevoDescription />
             <PtsBtn add={addpts} />
         </div>
