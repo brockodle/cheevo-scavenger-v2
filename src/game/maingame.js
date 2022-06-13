@@ -17,13 +17,11 @@ const Game = () => {
     let mallcheevos = [];
     let currcheevs = [];
 
-    const expandinfo = (n, item, divs) => {
+    function expandinfo (n, item) {
 
         console.log(n, item);
 
-        return (
-            <div>{item.description}</div>
-        )
+        item.fadeOut(200);
 
     }
 
@@ -82,7 +80,7 @@ const Game = () => {
 
         const outdivs = currcheevs.map(
             (item, index) => (
-                <div id={index} className="cheevoitem" onClick={() => cheevdetail(expandinfo(index, item, $(this)))} key={index}>
+                <div id={index} className="cheevoitem" onClick={() => cheevdetail(expandinfo(index, $(this)))} key={index}>
                     {item.title}
                 </div>
             )
@@ -96,11 +94,6 @@ const Game = () => {
 
     const CheevoDescription = () => {
 
-        return (
-            <div id="description">
-                {c}
-            </div>
-        )
     }
 
     const PtsBtn = () => {
@@ -114,7 +107,9 @@ const Game = () => {
         <div className="cheevoparent">
             <Points id="points" /><Timer id="timer" />
             <Cheevos/>
-            <CheevoDescription />
+            <CheevoDescription>
+                {c} 
+            </CheevoDescription>
             <PtsBtn add={addpts} />
         </div>
     )
