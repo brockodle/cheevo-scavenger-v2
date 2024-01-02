@@ -66,7 +66,6 @@ const Game = () => {
     convjson(cheevos.achievements, mallcheevos);
 
     const Points = () => {
-
         return (
             <div id="points">{p}</div>
         )
